@@ -14,7 +14,23 @@ st.set_option('deprecation.showfileUploaderEncoding', False)
 # Load the pickled model
 model = pickle.load(open('ritikmid.pkl','rb'))   
 dataset= pd.read_csv('clustering dataset1.csv')
-X = dataset.iloc[:,2:8].values
+X = dataset.iloc[:,0:8].values
+# Taking care of missing data
+#handling missing data (Replacing missing data with the mean value)  
+from sklearn.impute import SimpleImputer
+imputer = SimpleImputer(missing_values= np.NaN, strategy= 'mean', fill_value=None, verbose=1, copy=True)
+#Fitting imputer object to the independent variables x.   
+imputer = imputer.fit(X[:,2:7]) 
+#Replacing missing data with the calculated mean value  
+X[:,2:7]= imputer.transform(X[:,2:7])  
+
+
+# Encoding Categorical data:
+# Encoding the Independent Variable
+from sklearn.preprocessing import LabelEncoder
+labelencoder_X = LabelEncoder()
+X[:, 0] = labelencoder_X.fit_transform(X[:,0])
+
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
 X = sc.fit_transform(X)
