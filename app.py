@@ -27,11 +27,11 @@ X[:,2:7]= imputer.transform(X[:,2:7])
 
 # Encoding Categorical data:
 # Encoding the Independent Variable
-from sklearn.preprocessing import LabelEncoder
+from scikit-learn.preprocessing import LabelEncoder
 labelencoder_X = LabelEncoder()
 X[:, 0] = labelencoder_X.fit_transform(X[:,0])
 
-from sklearn.preprocessing import StandardScaler
+from scikit-learn.preprocessing import StandardScaler
 sc = StandardScaler()
 X = sc.fit_transform(X)
 def predict_note_authentication(Gender,Glucose,BP,SkinThickness,Insulin,BMI,PedigreeFunction,Age):
