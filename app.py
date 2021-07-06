@@ -12,8 +12,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 st.set_option('deprecation.showfileUploaderEncoding', False)
 # Load the pickled model
-model = pickle.load(open('/content/drive/My Drive/ritikmid','rb'))   
-dataset= pd.read_csv('/content/drive/My Drive/clustering dataset1 (1).csv')
+model = pickle.load(open('ritikmid','rb'))   
+dataset= pd.read_csv('clustering dataset1.csv')
 X = dataset.iloc[:,2:8].values
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
