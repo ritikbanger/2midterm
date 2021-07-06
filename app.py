@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 st.set_option('deprecation.showfileUploaderEncoding', False)
 # Load the pickled model
-model = pickle.load(open('ritikmid','rb'))   
+model = pickle.load(open('ritikmid.pkl','rb'))   
 dataset= pd.read_csv('clustering dataset1.csv')
 X = dataset.iloc[:,2:8].values
 from sklearn.preprocessing import StandardScaler
