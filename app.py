@@ -35,16 +35,15 @@ from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
 X = sc.fit_transform(X)
 def predict_note_authentication(Gender,Glucose,BP,SkinThickness,Insulin,BMI,PedigreeFunction,Age):
-  result= model.predict(sc.transform([[Gender,Glucose,BP,SkinThickness,Insulin,BMI,PedigreeFunction,Age]]))
+  output= model.predict([[Gender,Glucose,BP,SkinThickness,Insulin,BMI,PedigreeFunction,Age]])
   print("Disease Category is",output)
   if output==[0]:
-    result="Disease Category is 0"
+    prediction="Disease Category is 0"
   else:
-    result="Disease Category is 1"
-  print(result)
-  return result
+    prediction="Disease Category is 1"
+  print(prediction)
+  return prediction
 def main():
-
     
     html_temp = """
    <div class="" style="background-color:blue;" >
@@ -52,7 +51,7 @@ def main():
    <div class="col-md-12">
    <center><p style="font-size:40px;color:white;margin-top:10px;">Poornima Institute of Engineering & Technology</p></center> 
    <center><p style="font-size:30px;color:white;margin-top:10px;">Department of Computer Engineering</p></center> 
-   <center><p style="font-size:25px;color:white;margin-top:10px;"Machine Learning Lab Experiment</p></center> 
+   <center><p style="font-size:25px;color:white;margin-top:10px;">Deep Learning  Lab Experiment Deployment</p></center> 
    </div>
    </div>
    </div>
@@ -63,12 +62,12 @@ def main():
     Glucose = st.number_input('Insert a Glucose',0,200)
     BP= st.number_input('Insert a BP',80,120)
     SkinThickness = st.number_input('Insert a SkinThickness',0,100)
-    Insulin = st.number_input('Insert Insulin',0,300)
+    Insulin = st.number_input('Insert aInsulin',0,300)
     Gender = st.number_input('Insert 0 for Male 1 for Female',0,1)
     BMI= st.number_input('Insert BMI',10,50)
     PedigreeFunction= st.number_input('Insert a PedigreeFunction')
     
-    result=""
+    resul=""
     if st.button("Predict"):
       result=predict_note_authentication(Gender,Glucose,BP,SkinThickness,Insulin,BMI,PedigreeFunction,Age)
       st.success('Model has predicted {}'.format(result))
