@@ -35,7 +35,7 @@ from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
 X = sc.fit_transform(X)
 def predict_note_authentication(Gender,Glucose,BP,SkinThickness,Insulin,BMI,PedigreeFunction,Age):
-  predict= model.predict(sc.transform([[Gender,Glucose,BP,SkinThickness,Insulin,BMI,PedigreeFunction,Age]]))
+  result= model.predict(sc.transform([[Gender,Glucose,BP,SkinThickness,Insulin,BMI,PedigreeFunction,Age]]))
   print("Disease Category is",output)
   if output==[0]:
     result="Disease Category is 0"
